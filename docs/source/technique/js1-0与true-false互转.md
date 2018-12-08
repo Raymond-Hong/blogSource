@@ -3,6 +3,8 @@ title: 'js1,0与true,false互转'
 date: 2018-12-04 00:02:25
 tags:
 ---
+1、js1,0与true,false互转
+
 #JS的一點點寫法普及
 
 我們通常會遇到這樣的情況,

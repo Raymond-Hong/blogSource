@@ -1,15 +1,16 @@
 <template>
   <div class="theme-container" :style="{height:height}">
     <nav class="nav">
-      <button @click="goTo({path:'/source/technique/js1-0%E4%B8%8Etrue-false%E4%BA%92%E8%BD%AC.html'})">技术</button>
-      <button @click="goTo({path:'/source/life/%E7%94%9F%E6%B4%BB.html'})">生活</button>
-      <button @click="goTo({path:'/'})">首页</button>
-      <button @click="showGame(true)">游戏</button>
+      <button @click="openBlog">blog</button>
+      <button @click="goTo({path:'/'})">home</button>
+      <button @click="showGame(true)">game</button>
     </nav>
-    <div class="slider" v-if="slider">
-
+    <div class="flex">
+      <div class="slider" v-if="slider">
+        <slider-list></slider-list>
+      </div>
+      <Content v-if="content" class="content"/>
     </div>
-    <Content v-if="content" class="content"/>
     <div class="game" v-if="game">
       <twenty-fourty-eight></twenty-fourty-eight>
     </div>
@@ -20,8 +21,8 @@
   </div>
 </template>
 <script>
-// import helloWorld from '../components/HelloWorld.vue'
 import twentyFourtyEight from '../components/game/twentyFourtyEight'
+import sliderList from '../components/text/sliderList'
 export default {
   data(){
     return{
@@ -33,21 +34,16 @@ export default {
     }
   },
   components:{
+    sliderList,
     twentyFourtyEight
-    // helloWorld
   },
   created(){
-    // setInterval(()=>{
-    //   this.changeNumber();
-    // },1000)
+    
   },
   mounted(){
     this.height = window.screen.height + 'px';
   },
   methods:{
-    changeNumber(){
-      this.number++;
-    },
     goTo(url){
       this.showGame(false);
       this.$router.push(url);
@@ -58,6 +54,11 @@ export default {
       }
       this.content = !flag;
       this.game = flag;
+      this.slider = false;
+    },
+    openBlog(){
+      this.goTo({path:'/'});
+      this.slider = true;
     }
   }
 }
@@ -85,6 +86,9 @@ export default {
   /* border:1px solid greenyellow; */
   color: whitesmoke;
   text-align: center;
+}
+.flex{
+  display: flex;
 }
 .footer{
    position: absolute;
