@@ -46,11 +46,13 @@ export default {
     width: 100%;
     height: 300px;
     background-color: azure;
+    background-color: transparent;
     /* border: 1px solid blue; */
     overflow: scroll;
+    opacity: .9;
 }
 ul li div{
-    width: 180px;
+    width: 100%;
     height: 25px;
     line-height: 25px;
     margin: 0;

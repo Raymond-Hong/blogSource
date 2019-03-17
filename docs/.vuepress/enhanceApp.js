@@ -17,17 +17,5 @@ export default ({
     Vue.filter('trans',value=>{
       return zh_tran(value, localStorage.getItem('lang'));
     })
-    // let hello = {
-    //   path: '/hello',
-    //   name: 'HelloWorld',
-    //   component: HelloWorld
-    // };
-    // Object.assign(router,{
-    //   routes:[
-    //     hello
-    //   ]
-    // });
-    // router = router.concat(hello);
-    // router.options.routes.push(hello)
-    console.log('router',router.options,'siteData',siteData)
+    console.log('router',router.options)
   }
