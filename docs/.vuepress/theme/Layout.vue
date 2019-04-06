@@ -12,18 +12,22 @@
       <Content class="content"/>
     </div>
     <template v-if="content">
-      <button @click="handleWelcome" style="position:fixed;top:0;right:0">{{buttonName}}</button>
-      <main-content v-show="mainContent"></main-content>
+      <!-- <button @click="handleWelcome" style="position:fixed;top:0;right:0">{{buttonName}}</button> -->
+      <!-- <main-content v-show="mainContent"></main-content> -->
       <calendar></calendar>
     </template>
     <div class="game" v-if="game">
       <a href='#tfe'>2048</a>
       <a href='#tfp'>24点</a>
+      <a href='#draw'>抽奖</a>
       <div id='tfe'>
         <twenty-fourty-eight></twenty-fourty-eight>
       </div>
       <div id='tfp'>
         <twenty-four-point></twenty-four-point>
+      </div>
+      <div id="draw">
+        <draw></draw>
       </div>
     </div>
     <div class="footer">
@@ -37,6 +41,7 @@ import twentyFourtyEight from '../components/game/twentyFourtyEight'
 import sliderList from '../components/text/sliderList'
 import mainContent from '../components/text/mainContent'
 import twentyFourPoint from '../components/game/24point'
+import draw from '../components/game/Draw'
 import calendar from '../components/calendar/Calendar'
 import {tools} from '../public/js/tools.js'
 export default {
@@ -57,7 +62,8 @@ export default {
     twentyFourtyEight,
     mainContent,
     twentyFourPoint,
-    calendar
+    calendar,
+    draw
   },
   mounted(){
     this.height = window.screen.height + 'px';
