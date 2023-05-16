@@ -74,7 +74,6 @@ export default {
       this.closeAll();
       this.content=true;
       if (window.location.pathname !== '/') {
-        console.log(window.location.pathname, 'push')
         this.$router.push('/')
       }
     },
