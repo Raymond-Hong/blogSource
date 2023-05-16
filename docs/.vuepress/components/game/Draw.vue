@@ -156,15 +156,15 @@ ul{
     top: 5em;
 }
 .show{
-    width:50%;
-    height: 50%;
-    position: absolute;
-    left: 50%;
-    top: 60%;
-    transform: translate(-50%,-50%);
+    width:100vw;
+    box-sizing: border-box;
+    height: 50vh;
     background-color: blanchedalmond;
     color: blue;
     font-size: 30px;
-    padding: 20px;
+}
+.show li {
+    height: 10vh;
+    padding-top: 5vw;
 }
 </style>

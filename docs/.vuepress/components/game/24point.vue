@@ -16,7 +16,7 @@
         <span>{{process}}</span>
     </div>
     <div class="footer">
-        <input type="text" v-model="strNum" :placeholder="noNum">
+        <input type="text" v-model="strNum" @input="handleinput" :placeholder="noNum">
         <button @click="checkNum">查询</button>
     </div>
 </div>
@@ -168,18 +168,37 @@ export default {
         this.initNum();
     },
     methods:{
+        handleinput(e) {
+            if (!e.target.value) return
+            var value = +e.data;
+            if (e.data === null) {
+                this.strNum = this.strNum.slice(0, this.strNum.length - 1)
+                return
+            }
+            if (e.target.value.length >= 8) {
+                this.strNum = e.target.value.slice(0, e.target.value.length-1)
+                return
+            }
+            if (value !== value) {
+                this.strNum = e.target.value.slice(0, e.target.value.length-1)
+                return
+            }
+            this.strNum = this.strNum + ','
+        },
         checkNum(){
             if(!this.strNum){
-                alert("输入有误!");
+                alert("请输入!");
                 return;
             }
             let nums = this.strNum.split(",");
+            nums.length = nums.length - 1;
+            console.log(nums)
             if(nums.some(n=>n>9||n<1)){
                 alert("输入有误!");
                 return;
             }
             if(!compute24(...nums,this)){
-                alert("输入有误!");
+                alert("输入无解!");
                 return;
             }
             nums.forEach((n,k)=>{
@@ -221,10 +240,8 @@ export default {
 }
 .container{
     display: flex;
-    position: absolute;
-    left: calc(50% - 144px);
-    top: 30%;
-    margin: 30px auto;
+    justify-content: center;
+    margin-top: 2vw;
 }
 .img{
     flex-basis: 72px;
@@ -238,13 +255,14 @@ button{
     height: 100px;
     border-radius: 50%;
     font-size: 30px;
-    color: #cfc;
-    background-color: #fff;
+    color: #787;
+    background-color: #eee;
+    border: none;
     cursor: pointer;
 }
 button:hover{
-    background-color: #cfc;
-    color: #fff;
+    background-color: #787;
+    color: #eee;
 }
 input,label>span{
     display: none;
@@ -266,7 +284,7 @@ input:checked~label>span:last-child,input:not(:checked)~label>span:first-child{
     margin: 10px auto;
 }
 .footer{
-    margin-top: 30%;
+    margin-top: 15vh;
 }
 .footer input{
     display: inline-block;
@@ -276,16 +294,21 @@ input:checked~label>span:last-child,input:not(:checked)~label>span:first-child{
     box-sizing: border-box;
     font-size: 20px;
     border-radius: 10px;
+    border: none;
+    outline: none;
 }
 .footer button{
     width: 100px;
     height: 50px;
-    color: #cfc;
-    background-color: #0ee;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    color: #112;
+    background-color: lightgreen;
 }
 .footer button:hover{
-    background-color: #cfc;
-    color: #0ee;
+    background-color: #cc2;
+    color: #aaa;
 }
 </style>
 

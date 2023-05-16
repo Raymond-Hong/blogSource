@@ -1,14 +1,14 @@
 {
-  "name": "study",
+  "name": "blog",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "personal show",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs",
+    "deploy": "bash deploy.sh"
   },
   "keywords": [],
-  "author": "",
+  "author": "raymondhone",
   "license": "ISC"
 }

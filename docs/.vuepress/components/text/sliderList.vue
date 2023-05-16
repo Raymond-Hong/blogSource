@@ -43,7 +43,7 @@ export default {
 }
 .box{
     margin: 25px 5px;
-    width: 100%;
+    width: 20vw;
     height: 300px;
     background-color: azure;
     background-color: transparent;

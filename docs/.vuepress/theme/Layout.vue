@@ -1,5 +1,5 @@
 <template>
-  <div class="theme-container" :style="{height:height}">
+  <div class="theme-container">
     <nav class="nav">
       <button @click="openBlog">blog</button>
       <button @click="goHome">home</button>
@@ -48,7 +48,6 @@ export default {
   data(){
     return{
       number:5,
-      height:0+'px',
       slider:false,
       content:true,
       game:false,
@@ -65,9 +64,6 @@ export default {
     calendar,
     draw
   },
-  mounted(){
-    this.height = window.screen.height + 'px';
-  },
   methods:{
     closeAll(){
       this.slider=false;
@@ -77,6 +73,10 @@ export default {
     goHome(){
       this.closeAll();
       this.content=true;
+      if (window.location.pathname !== '/') {
+        console.log(window.location.pathname, 'push')
+        this.$router.push('/')
+      }
     },
     showGame(){
       this.closeAll();
@@ -100,15 +100,20 @@ export default {
 
 <style scoped>
 .nav{
+  padding-top: 10vw;
+  height: 20vh;
   background: linear-gradient( #abc, #def);
   opacity: 0.6;
 }
 button,
 .nav button{
-  padding: 5px;
+  width: 8vw;
+  height: 4vw;
+  margin-left: 2vw;
   border-radius: 50%;
-  background-color: blueviolet;
-  color: #fff;
+  background-color: lightgreen;
+  color: #112;
+  border: none;
   cursor: pointer;
 }
 .nav button:hover{
@@ -116,9 +121,10 @@ button,
   background-color: #fff;
 }
 .theme-container{
+  min-height: 100vh;
   border:1px solid bisque;
   /* background: linear-gradient(pink, greenyellow); */
-  width: 100%;
+  min-width: 80vw;
   text-align: center;
   background-color: bisque;
 }
@@ -127,8 +133,15 @@ button,
 }
 .slider{
   font-size: 10px;
-  flex-grow: 4;
-  width: 20%;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-right: 3vw;
+  width: 80vw;
+  box-sizing: border-box;
 }
 .footer{
    position: absolute;

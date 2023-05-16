@@ -13,14 +13,15 @@ export default {
 
 <style scoped>
 :root,body{
-    width:100%;
-    height: 100%;
+    width:100vw;
+    height: 100vh;
 }
     .content{
-        position:absolute;
         text-align: center;
-        top: 100px;
-        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-width: 80vw;
         height: 100%;
         font-size: 30px;
         font-weight: bold;

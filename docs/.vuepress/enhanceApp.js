@@ -17,5 +17,4 @@ export default ({
     Vue.filter('trans',value=>{
       return zh_tran(value, localStorage.getItem('lang'));
     })
-    console.log('router',router.options)
   }

@@ -108,15 +108,15 @@ export default {
     cursor: pointer;
 }
 .prev-month{
-    border-right-color: #007fff;
+    border-right-color: lightgreen;
 }
 .next-month{
-    border-left-color: #007fff;
+    border-left-color: lightgreen;
 }
 .show-date{
     flex: 1;
     text-align: center;
-    color: #007fff;
+    color: #112;
 }
 .week-header{
     display: flex;
@@ -125,7 +125,7 @@ export default {
     flex: 1;
     text-align: center;
     line-height: 30px;
-    background-color: #007fff;
+    background-color: lightgreen;
     color: #fff;
     font-weight: 600;
 }
@@ -143,13 +143,13 @@ export default {
     color: #ccc;
 }
 .now-day{
-    background-color: #007fff;
+    background-color: lightgreen;
     color: #fff;
     font-weight: 600;
 }
 .active-day:not(.now-day){
-    color: #007fff;
-    border: 2px solid #007fff;
+    color: #666;
+    border: 2px solid #abc;
     line-height: 46px;
 }
 </style>
